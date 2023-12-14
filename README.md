@@ -1,4 +1,4 @@
-# Conact us App
+# Contact us App
 
 ## Description
 
