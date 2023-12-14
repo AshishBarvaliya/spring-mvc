@@ -2,7 +2,7 @@
 
 ## Description
 
-Provide a brief description of what your project does and its purpose.
+Our project is a Spring MVC-based web application designed to manage and display contact information. The primary purpose of this application is to provide a user-friendly interface where users can submit contact details through a form, view a list of submitted contacts, and filter these contacts based on specific criteria.
 
 ## Setup and Installation
 
