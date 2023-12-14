@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>List Contacts</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+    <h1>Contact List</h1>
+    <div class="contact-list">
+        <div th:if="${contacts.empty}" class="no-contacts">
+            <p>No contacts found.</p>
+        </div>
+        <div th:each="contact : ${contacts}" class="contact">
+            <p th:text="${contact.name}">Name</p>
+            <p th:text="${contact.email}">Email</p>
+            <p th:text="${contact.message}">Message</p>
+        </div>
+    </div>
+    <button onclick="window.location.href='/contact'" style="width: 200px;">Add Contact</button>
+</body>
+
+</html>

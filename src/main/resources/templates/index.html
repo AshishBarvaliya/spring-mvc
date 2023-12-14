@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Contact Page</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+    <h1>Contact Page</h1>
+    <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+        <button style="width: 200px;" class="button" onclick="window.location.href='/contacts'">View Contacts</button>
+
+        <!-- Add New Contact Button -->
+        <button style="width: 200px;" class="button" onclick="window.location.href='/contact'">Add New Contact</button>
+    </div>
+    <div id="hitCount">Loading hits...</div>
+
+    <script>
+        async function updateHitCount() {
+            try {
+                const response = await fetch('/api/hits');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const hitCount = await response.json();  // Assuming the response is in JSON format
+                document.getElementById('hitCount').textContent = `Page hits: ${hitCount}`;
+            } catch (error) {
+                console.error('Failed to update hit count:', error);
+                document.getElementById('hitCount').textContent = 'Failed to load hits';
+            }
+        }
+
+        // Update hit count every 3 seconds
+        setInterval(updateHitCount, 3000);
+
+        // Initial hit count update
+        updateHitCount();
+    </script>
+</body>
+
+</html>

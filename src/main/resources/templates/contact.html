@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Contact Form</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+    <h1>Contact Us</h1>
+    <form th:action="@{/contact}" th:object="${contact}" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" th:field="*{name}" />
+        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="error">Name Error</span>
+
+        <label for="email">Email:</label>
+        <input type="text" id="email" th:field="*{email}" />
+        <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="error">Email Error</span>
+
+        <label for="message">Message:</label>
+        <textarea id="message" th:field="*{message}"></textarea>
+        <span th:if="${#fields.hasErrors('message')}" th:errors="*{message}" class="error">Message Error</span>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+
+</html>
